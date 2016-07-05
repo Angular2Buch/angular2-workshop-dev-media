@@ -2,6 +2,16 @@
   dashboard works!
 </p>
 
-<a href="{{ test }}">DANGER</a>
+<!--
+<br-book
+  [book]="book"
+  *ngFor="let book of books"></br-book>
 
-{{ books }}
+<hr>
+-->
+
+<div *ngFor="let book of books; let i = index">
+  
+  TEST {{ i+1 }}.
+  <br-book [book]="book"></br-book>
+</div>

@@ -1,0 +1,13 @@
+<div>
+  <img src="//gravatar.com/avatar/{{ book.rating }}?s=80 &default=wavatar" />
+
+  <!-- dirty!!! -->
+  <button (click)="book.rating = book.rating + 1">Rate up</button>
+
+  <h2>{{ book.title }}</h2>
+
+  {{ book.rating }}
+  {{ book.description }}
+</div>
+
+<hr>
