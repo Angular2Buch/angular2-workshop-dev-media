@@ -9,15 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   books: string[];
+  test: string;
 
-  constructor() {
-    window.setTimeout(() => {
-      this.books.push('Change detection!');
-    }, 1000);
-  }
+  constructor() {  }
 
   ngOnInit() {
-    this.books = ['Angular 2', 'AngularJS 1'];
+    this.test = 'javascript:alert(1)';
+    this.books = ['Angular 2', 'AngularJS 1', '<b>TEST</b>'];
   }
 
 }
