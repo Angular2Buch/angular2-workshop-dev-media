@@ -1,17 +1,6 @@
-<p>
-  dashboard works!
-</p>
-
-<!--
 <br-book
   [book]="book"
   *ngFor="let book of books"></br-book>
 
-<hr>
--->
 
-<div *ngFor="let book of books; let i = index">
-  
-  TEST {{ i+1 }}.
-  <br-book [book]="book"></br-book>
-</div>
+Anzahl Bücher: {{ books.length }}

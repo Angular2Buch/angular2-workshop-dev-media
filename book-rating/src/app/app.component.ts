@@ -9,5 +9,5 @@ import { DashboardComponent } from './dashboard/';
   directives: [DashboardComponent]
 })
 export class AppComponent {
-  title = 'Angular 2 works!';
+  title = 'Book Rating';
 }
