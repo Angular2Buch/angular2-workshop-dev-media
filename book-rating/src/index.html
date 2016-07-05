@@ -10,10 +10,16 @@
   {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
 </head>
-<body>
+<body class="container">
 
   <br-root>Loading...</br-root>
+  
+  <button class="btn btn-danger">
+    <i class="glyphicon glyphicon-glass"></i>
+    Prost!
+  </button>
 
 
     {{#each scripts.polyfills}}
