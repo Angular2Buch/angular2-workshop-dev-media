@@ -12,12 +12,12 @@ beforeEachProviders(() => [AppComponent]);
 
 describe('App: BookRating', () => {
   it('should create the app',
-      inject([AppComponent], (app: AppComponent) => {
-    expect(app).toBeTruthy();
-  }));
+    inject([AppComponent], (app: AppComponent) => {
+      expect(app).toBeTruthy();
+    }));
 
-  it('should have as title \'app works!\'',
-      inject([AppComponent], (app: AppComponent) => {
-    expect(app.title).toEqual('app works!');
-  }));
+  it('should have as title "Book Rating"',
+    inject([AppComponent], (app: AppComponent) => {
+      expect(app.title).toEqual('Book Rating');
+    }));
 });
