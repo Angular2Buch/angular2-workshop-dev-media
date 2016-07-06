@@ -26,5 +26,12 @@ export class DashboardComponent implements OnInit {
 
   sortBooks(book: Book) {
     this.books.sort((a, b) => b.rating - a.rating);
+
+    this.books.sort((a, b) => { return b.rating - a.rating; });
+
+    this.books.sort(function sorter(a, b) {
+      return b.rating - a.rating; 
+    });
+  }
   }
 }
