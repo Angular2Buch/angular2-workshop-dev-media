@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../shared/';
 import { BookComponent } from '../book/';
+import { CreateBookComponent } from '../create-book'; // !!
 
 @Component({
   moduleId: module.id,
   selector: 'br-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.css'],
-  directives: [BookComponent]
+  directives: [BookComponent, CreateBookComponent]  // !!
 })
 export class DashboardComponent implements OnInit {
-
   books: Book[];
-  isValid: boolean;
-
-  constructor() { }
 
   ngOnInit() {
     this.books = [
@@ -23,22 +20,12 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
-  private sortBooks() {
+  sortBooks() {
     this.books.sort((a, b) => b.rating - a.rating);
   }
 
-  dataChanged(title: HTMLInputElement, description: HTMLInputElement) {
-    this.isValid = !!(title.value && description.value);
-  }
-
-  add(title: HTMLInputElement, description: HTMLInputElement) {
-
-    let newBook = new Book(title.value, description.value, 4);
-    this.books.push(newBook);
-
-    title.value = '';
-    description.value = '';
-
-    this.sortBooks();
+  // template: <br-create-book (bookCreated)="add($event)"></br-create-book>
+  add(book: Book) {
+    this.books.push(book);
   }
 }

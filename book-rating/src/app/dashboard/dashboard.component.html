@@ -1,17 +1,4 @@
-<div class="form">
-  <div class="form-group">
-    <div><label for="title">Title</label></div>
-    <div><input class="form-control" name="title" #title (blur)="dataChanged(title, description)"></div>
-  </div>
-  <div class="form-group">
-    <div><label for="link">Description</label></div>
-    <div><textarea class="form-control" name="description" #description (blur)="dataChanged(title, description)"></textarea></div>
-  </div>
-  <div class="form-group">
-   <button (click)="add(title, description)" class="btn btn-danger"
-           [disabled]="!isValid">Submit</button>
-  </div>
-</div>
+<br-create-book (bookCreated)="add($event)"></br-create-book>
 
 <hr>
 
