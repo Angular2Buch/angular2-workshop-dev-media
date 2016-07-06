@@ -18,20 +18,22 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.books = [
       new Book('Angular 2', 'Ein Framework schreib Geschichte'),
-      new Book('AngularJS', 'Oldy but Gooldie'),
-      new Book('TEST 1', 'Lore ipsum'),
-      new Book('TEST 2', 'Pretty fly for a white guy')
+      new Book('AngularJS', 'Oldy but Gooldie')
     ];
   }
 
-  sortBooks(book: Book) {
+  sortBooks() {
     this.books.sort((a, b) => b.rating - a.rating);
-
-    this.books.sort((a, b) => { return b.rating - a.rating; });
-
-    this.books.sort(function sorter(a, b) {
-      return b.rating - a.rating; 
-    });
   }
+
+  add(title: HTMLInputElement, description: HTMLInputElement) {
+
+    let newBook = new Book(title.value, description.value, 4);
+    this.books.push(newBook);
+
+    title.value = '';
+    description.value = '';
+
+    this.sortBooks();
   }
 }
