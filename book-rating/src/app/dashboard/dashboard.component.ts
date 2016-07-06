@@ -12,6 +12,7 @@ import { BookComponent } from '../book/';
 export class DashboardComponent implements OnInit {
 
   books: Book[];
+  isValid: boolean;
 
   constructor() { }
 
@@ -22,8 +23,12 @@ export class DashboardComponent implements OnInit {
     ];
   }
 
-  sortBooks() {
+  private sortBooks() {
     this.books.sort((a, b) => b.rating - a.rating);
+  }
+
+  dataChanged(title: HTMLInputElement, description: HTMLInputElement) {
+    this.isValid = !!(title.value && description.value);
   }
 
   add(title: HTMLInputElement, description: HTMLInputElement) {
