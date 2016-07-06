@@ -3,6 +3,10 @@ export class Book {
     private MAX_RATING = 5;
     private MIN_RATING = 0;
 
+    static empty(): Book {
+        return new Book('', '');
+    }
+
     constructor(public title: string,
         public description: string,
         public rating = 0) { }
