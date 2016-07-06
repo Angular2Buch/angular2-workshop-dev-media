@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../shared/';
 
 @Component({
@@ -9,8 +9,9 @@ import { Book } from '../shared/';
 })
 export class BookComponent implements OnInit {
 
-  // @Input Decorator == öffentliche Schnittstelle
+  // öffentliche Schnittstellen
   @Input() book: Book;
+  @Output() rated: EventEmitter<Book> = new EventEmitter<Book>();
 
   constructor() {}
 
@@ -19,10 +20,12 @@ export class BookComponent implements OnInit {
 
   rateUp() {
       this.book.rateUp();
+      this.rated.emit(this.book);
   }
 
   rateDown() {
       this.book.rateDown();
+      this.rated.emit(this.book);
   }
 
 }
