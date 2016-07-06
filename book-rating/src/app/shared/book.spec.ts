@@ -10,7 +10,7 @@ import {Book} from './book';
 
 describe('Book', () => {
   
-  xit('should create an instance', () => {
+  it('should create an instance', () => {
     expect(new Book('Test', 'Description')).toBeTruthy();
   });
 
