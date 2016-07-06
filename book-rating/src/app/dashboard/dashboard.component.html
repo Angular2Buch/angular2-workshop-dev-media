@@ -1,7 +1,12 @@
+<input type="text" name="title" #title>
+<textarea name="description" #description></textarea>
+<button (click)="add(title, description)">Submit</button>
+
+<hr>
+
 <br-book
   [book]="book"
   (rated)="sortBooks($event)"
   *ngFor="let book of books"></br-book>
-
 
 Anzahl Bücher: <b>{{ books.length }}</b>
