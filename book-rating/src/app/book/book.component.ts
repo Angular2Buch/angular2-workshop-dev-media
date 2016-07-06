@@ -18,11 +18,11 @@ export class BookComponent implements OnInit {
   }
 
   rateUp() {
-      // TODO!
+      this.book.rateUp();
   }
 
   rateDown() {
-      // TODO!
+      this.book.rateDown();
   }
 
 }
