@@ -17,4 +17,12 @@ export class BookComponent implements OnInit {
   ngOnInit() {
   }
 
+  rateUp() {
+      // TODO!
+  }
+
+  rateDown() {
+      // TODO!
+  }
+
 }

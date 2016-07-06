@@ -10,6 +10,7 @@ import {
   async, inject
 } from '@angular/core/testing';
 
+import { Book } from '../shared';
 import { BookComponent } from './book.component';
 
 describe('Component: Book', () => {
@@ -17,4 +18,20 @@ describe('Component: Book', () => {
     let component = new BookComponent();
     expect(component).toBeTruthy();
   });
+
+  describe('Rate a book', () => {
+    beforeEachProviders(() => [BookComponent]); // !
+
+    it('should allow ratings, by increasing the rating of the book enity', () => {
+      let component = new BookComponent();
+      let testBook = new Book('title', 'description', 2);
+
+      component.book = testBook;
+      component.rateUp();
+
+      expect(testBook.rating).toBe(3);
+    });
+  });
 });
+
+
