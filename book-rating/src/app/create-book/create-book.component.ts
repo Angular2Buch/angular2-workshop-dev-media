@@ -16,7 +16,7 @@ export class CreateBookComponent {
     this.book = Book.empty();
   }
 
-  add(title, comment) {
+  add() {
     this.bookCreated.emit(this.book);
     this.book = Book.empty();
   }
