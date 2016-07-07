@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Book } from '../shared/';
 import { BookComponent } from '../book/';
 import { CreateBookComponent } from '../create-book/';
+import { Http } from '@angular/http'; // HTTP_PROVIDERS nicht vergessen
 
 @Component({
   moduleId: module.id,
@@ -10,19 +11,20 @@ import { CreateBookComponent } from '../create-book/';
   styleUrls: ['dashboard.component.css'],
   directives: [BookComponent, CreateBookComponent]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-  books: Book[];
-  constructor() { }
+  books: Book[] = [];
 
-  ngOnInit() {
-    this.books = [
-      new Book('Angular 2', 'Ein Framework schreib Geschichte'),
-      new Book('AngularJS', 'Oldy but Gooldie')
-    ];
+  constructor(private http: Http) {
+    this.http.get('http://book-monkey2-api.angular2buch.de/books')
+      .subscribe(response => {
+        this.books = response
+          .json()
+          .map(rawBook => new Book(rawBook.title, rawBook.description, rawBook.rating));
+      });
   }
 
-  private sortBooks() {
+  sortBooks() {
     this.books.sort((a, b) => b.rating - a.rating);
   }
 
