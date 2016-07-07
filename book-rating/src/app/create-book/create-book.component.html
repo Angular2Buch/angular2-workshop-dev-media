@@ -5,7 +5,11 @@
       [(ngModel)]="book.title"
       class="form-control"
       name="title"
-      #title></div>
+      required
+      minlength="3"
+      #title
+      placeholder="Bitte Titel eingeben!"></div>
+      {{ title.className }}
   </div>
   <div class="form-group">
     <div><label for="link">Description</label></div>
@@ -13,7 +17,9 @@
       [(ngModel)]="book.description"  
       class="form-control"
       name="description"
-      #description></textarea></div>
+      #description
+      placeholder="Hier die Beschreibung."></textarea></div>
+      {{ description.className }}
   </div>
   <div class="form-group">
    <button (click)="add()" class="btn btn-danger">Submit</button>
