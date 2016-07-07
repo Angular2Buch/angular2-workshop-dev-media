@@ -1,4 +1,3 @@
-// create-book.component.ts
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Book } from '../shared';
 
@@ -10,13 +9,15 @@ import { Book } from '../shared';
 })
 export class CreateBookComponent {
   @Output() bookCreated: EventEmitter<Book>;
+  book: Book; // !!!
 
   constructor() {
     this.bookCreated = new EventEmitter<Book>();
+    this.book = Book.empty();
   }
 
-  add(title, description) {
-    this.bookCreated.emit(new Book(title.value, description.value));
-    title.value = description.value = ''; // ACHTUNG - noch unschön
+  add() {
+    this.bookCreated.emit(this.book);
+    this.book = Book.empty();
   }
 }
