@@ -1,11 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Book } from '../shared/';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   moduleId: module.id,
   selector: 'br-book',
   templateUrl: 'book.component.html',
-  styleUrls: ['book.component.css']
+  styleUrls: ['book.component.css'],
+  directives: [ROUTER_DIRECTIVES]
 })
 export class BookComponent implements OnInit {
 
