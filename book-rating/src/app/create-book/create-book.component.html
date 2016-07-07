@@ -1,27 +1,34 @@
-<div class="form">
-  <div class="form-group">
-    <div><label for="title">Title</label></div>
-    <div><input 
-      [(ngModel)]="book.title"
-      class="form-control"
-      name="title"
-      required
-      minlength="3"
-      #title
-      placeholder="Bitte Titel eingeben!"></div>
-      {{ title.className }}
+<form #bookCreation="ngForm">
+  <div class="form">
+    <div class="form-group">
+      <div><label for="title">Title</label></div>
+      <div><input 
+        [(ngModel)]="book.title"
+        class="form-control"
+        name="title"
+        required
+        minlength="3"
+        #title="ngModel"
+        placeholder="Bitte Titel eingeben!"></div>
+    </div>
+
+    <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+      Der Titel muss mindestens 3 Zeichen lang sein!
+    </div>
+
+    <div class="form-group">
+      <div><label for="link">Description</label></div>
+      <div><textarea
+        [(ngModel)]="book.description"  
+        class="form-control"
+        name="description"
+        #description
+        placeholder="Hier die Beschreibung."></textarea></div>
+    </div>
+    <div class="form-group">
+      <button 
+        [disabled]="!bookCreation.form.valid"
+        (click)="add()" class="btn btn-danger">Submit</button>
+    </div>
   </div>
-  <div class="form-group">
-    <div><label for="link">Description</label></div>
-    <div><textarea
-      [(ngModel)]="book.description"  
-      class="form-control"
-      name="description"
-      #description
-      placeholder="Hier die Beschreibung."></textarea></div>
-      {{ description.className }}
-  </div>
-  <div class="form-group">
-   <button (click)="add()" class="btn btn-danger">Submit</button>
-  </div>
-</div>
+</form>
